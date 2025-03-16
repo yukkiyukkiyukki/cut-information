@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webカチンコ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #222;
+            color: white;
+            margin: 20px;
+        }
+        .slate {
+            display: inline-block;
+            padding: 20px;
+            border: 5px solid white;
+            border-radius: 10px;
+            background-color: black;
+            text-align: center;
+            width: 300px;
+        }
+        .section {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slate">
+        <div class="section">
+            <strong>Reel:</strong> <span id="reel">1</span>
+            <div class="buttons">
+                <button onclick="changeValue('reel', 1)">▲</button>
+                <button onclick="changeValue('reel', -1)">▼</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <strong>Scene:</strong> <span id="scene">1</span>
+            <div class="buttons">
+                <button onclick="changeValue('scene', 1)">▲</button>
+                <button onclick="changeValue('scene', -1)">▼</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <strong>Take:</strong> <span id="take">1</span>
+            <div class="buttons">
+                <button onclick="changeValue('take', 1)">▲</button>
+                <button onclick="changeValue('take', -1)">▼</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeValue(id, delta) {
+            const element = document.getElementById(id);
+            let value = parseInt(element.textContent);
+            value = Math.max(1, value + delta);
+            element.textContent = value;
+        }
+    </script>
+
+</body>
+</html>
